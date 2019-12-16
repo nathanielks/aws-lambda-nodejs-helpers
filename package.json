@@ -1,0 +1,27 @@
+{
+  "name": "aws-lambda-nodejs-helpers",
+  "version": "0.1.0",
+  "description": "A few helpful functions for making developing on AWS Lambda easier",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanielks/aws-lambda-nodejs-helpers.git"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "nodejs",
+    "helper",
+    "lib",
+    "library"
+  ],
+  "author": "Nathaniel Schweinberg <nathaniel@fightthecurrent.org>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanielks/aws-lambda-nodejs-helpers/issues"
+  },
+  "homepage": "https://github.com/nathanielks/aws-lambda-nodejs-helpers#readme"
+}
