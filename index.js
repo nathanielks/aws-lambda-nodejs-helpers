@@ -86,16 +86,8 @@ function getConfig( env, vars ) {
 	return config;
 }
 
-function notifySlack(config, text) {
-  const payload = JSON.stringify({
-    text,
-    channel: config.SLACK_CHANNEL,
-    username: config.USERNAME,
-    icon_emoji: config.ICON_EMOJI
-  });
-
-  console.log("Sending payload: " + payload);
-  return fetch(config.WEBHOOK_URL, {
+function postURL(url, payload) {
+  return fetch(url, {
     method: "POST",
     body: payload,
     timeout: 5000,
@@ -106,7 +98,7 @@ function notifySlack(config, text) {
     if (!res.ok) {
       // res.status >= 200 && res.status < 300
       const text = await res.text();
-      throw new Error("Error recieved communicating with Slack: " + text);
+      throw new Error("Error recieved communicating with url: " + text);
     }
     return res;
   });
