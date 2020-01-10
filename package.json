@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/nathanielks/aws-lambda-nodejs-helpers/issues"
   },
-  "homepage": "https://github.com/nathanielks/aws-lambda-nodejs-helpers#readme"
+  "homepage": "https://github.com/nathanielks/aws-lambda-nodejs-helpers#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
 }
