@@ -4,7 +4,7 @@ module.exports = {
   getParameters,
   errorOnMissingVars,
   getConfig,
-  notifySlack
+  postURL
 }
 
 async function getParameters( env, required_params, ssm ) {
