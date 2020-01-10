@@ -1,7 +1,8 @@
 module.exports = {
   getParameters,
   errorOnMissingVars,
-  getConfig
+  getConfig,
+  notifySlack
 }
 
 async function getParameters( env, required_params, ssm ) {
@@ -81,4 +82,30 @@ function getConfig( env, vars ) {
 	}, {} );
 
 	return config;
+}
+
+function notifySlack(config, text) {
+  const payload = JSON.stringify({
+    text,
+    channel: config.SLACK_CHANNEL,
+    username: config.USERNAME,
+    icon_emoji: config.ICON_EMOJI
+  });
+
+  console.log("Sending payload: " + payload);
+  return fetch(config.WEBHOOK_URL, {
+    method: "POST",
+    body: payload,
+    timeout: 5000,
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(async res => {
+    if (!res.ok) {
+      // res.status >= 200 && res.status < 300
+      const text = await res.text();
+      throw new Error("Error recieved communicating with Slack: " + text);
+    }
+    return res;
+  });
 }
