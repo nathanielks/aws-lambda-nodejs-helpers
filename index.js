@@ -25,7 +25,7 @@ async function getParameters( env, required_params, ssm ) {
 	}
 
 	// Error if parameters are missing
-	errorOnMissingVars( params, env );
+	errorOnMissingVars( env, params );
 
 	// object keyed on parameter name for reverse lookup when we want to hydrate
 	// the environment variable without the PARAM_ prefix later
